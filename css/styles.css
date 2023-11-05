@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  height: 100vh;
+}
+
+.appContainer {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 70px 70px 3fr 1fr 0.7fr 0.7fr 0.7fr 1.5fr 1fr 1fr;
+  grid-template-areas: "header" "nav" "dashboard" "daily_Traffic" "mobile_Users" "social_Stats" "new_Members" "recent_Activity" "message_User" "settings";
+  gap: 0.2rem;
+  font-weight: 800;
+}
+
+.header {
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.student {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user {
+  margin: 0 1.5rem;
+}
+
+.nav {
+  display: flex;
+  background-color: aquamarine;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.dashboard {
+  padding: 15px;
+}
+
+.daily_Traffic {
+  min-width: 320px;
+  height: 350px;
+  padding: 15px;
+}
+
+.mobile_Users {
+  min-width: 320px;
+  height: 350px;
+  padding: 15px;
+}
+
+.social_Stats {
+  padding: 15px;
+}
+.social_Stats .card {
+  display: flex;
+  padding: 1rem;
+  border: 1px solid;
+  border-radius: 0.3rem;
+  margin: 1rem;
+}
+.social_Stats .card .social {
+  border: 1px solid;
+  border-radius: 50px;
+  padding: 10px;
+  color: white;
+  background-color: rgb(146, 161, 207);
+}
+.social_Stats .card .stats {
+  padding-left: 2rem;
+}
+
+.new_Members {
+  padding: 15px;
+}
+
+.member {
+  display: grid;
+  justify-items: center;
+  border-bottom: 1px solid;
+  padding: 1.5rem;
+}
+.member img {
+  border-radius: 50%;
+}
+
+.recent_Activity {
+  padding: 15px;
+}
+
+.message_User {
+  padding: 15px;
+}
+.message_User h3 {
+  margin-bottom: 15px;
+}
+.message_User form {
+  display: grid;
+  row-gap: 15px;
+}
+.message_User form input, .message_User form textarea {
+  padding: 15px;
+}
+
+.settings {
+  background-color: none;
+  display: grid;
+  margin: 10px;
+  align-self: center;
+}
+.settings select, .settings button, .settings span, .settings a {
+  font-size: 1.1rem;
+  margin: 5px;
+  padding: 5px;
+}
+
+.bell-svg {
+  width: 20px;
+}
+
+.user {
+  width: 60px;
+  border-radius: 50%;
+}
+
+.home {
+  width: 60px;
+}
+
+.bar-chart {
+  width: 60px;
+}
+
+.social {
+  width: 60px;
+}/*# sourceMappingURL=styles.css.map */
