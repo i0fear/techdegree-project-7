@@ -1,0 +1,33 @@
+
+.traffic{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.fourcharts{
+    display: inline-flex;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+        
+}
+.xLabel{
+    padding: 8px 14px;
+    font-size: 14px;
+    margin: 5px 10px;
+    
+    border-radius: 15px;
+    background: forestgreen;
+    color: white;
+    cursor: pointer;
+    transition:  0.1s;
+    
+}    
+.xChart{
+    display: none;
+}
+.xChart:checked +.xLabel{
+    background: #006B56;
+    transform: scale(1.15);
+}

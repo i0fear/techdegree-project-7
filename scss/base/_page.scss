@@ -5,6 +5,7 @@
 }
 .body{
     height: 100vh;
+    max-width: 320px;
 }
 
 .appContainer{
@@ -49,7 +50,7 @@
 
 .nav{
     display: flex;
-background-color: aquamarine;
+// background-color: aquamarine;
 justify-content: space-between;
 padding: 0 1rem;    
 

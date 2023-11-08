@@ -1,6 +1,16 @@
 @import
     'base/_variables.scss',
     'base/_page.scss',
-    'components/_images.scss';
+    'components/_alert.scss',
+    'components/_images.scss',
+    'components/_radio.scss';
 
-  
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.body{
+    height: 100vh;
+    
+} 
