@@ -1,6 +1,6 @@
 // Alert Notification//
-var box=document.getElementById('box');
-var down = false;
+const box=document.getElementById('box');
+const down = false;
 
 function toggleNotifi(){
     if(down){
@@ -14,12 +14,45 @@ function toggleNotifi(){
     }
 }
 
+const selectChart = new Chart(document.getElementById("displayChart")
+    ,{
+      type: 'line',
+      data: {
+        labels: ['1', '2', '3', '4', '5','6', '7', '8', '9', '10', '11', '12'],
+        datasets: [{
+          
+          data: [180, 175, 360, 185, 287, 165, 190, 108, 100, 175, 183, 160, ],
+          
+          fill:true,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+        plugins: {
+            legend: {
+                display: false,
+            }    
+        }
+      }
+    });
+
+
 //Traffic charts: press radio button to change//
 //Hourly, Weekly, Monthly and Yearly button is selected//
 //Display 
 
 function drawChart(chartType) {
-  
+  if (window.result) {
+    result.innerHTML="";
+    const canvas = document.createElement("canvas");
+canvas.id = "displayChart";
+document.getElementById("result").appendChild(canvas);
+  }
   
   if (chartType === "Hourly") {
     const selectChart = new Chart(document.getElementById("displayChart")
@@ -50,7 +83,12 @@ function drawChart(chartType) {
     });
   } 
   else if (chartType === "Weekly") {
-    
+    if (window.result) {
+      result.innerHTML="";
+      const canvas = document.createElement("canvas");
+canvas.id = "displayChart";
+document.getElementById("result").appendChild(canvas);
+    }
     
     const selectChart = new Chart(document.getElementById("displayChart")
     , {
@@ -79,7 +117,12 @@ function drawChart(chartType) {
       }
     });  
   } else if (chartType === "Monthly") {
-
+    if (window.result) {
+      result.innerHTML="";
+      const canvas = document.createElement("canvas");
+canvas.id = "displayChart";
+document.getElementById("result").appendChild(canvas);
+    }
     
     const selectChart = new Chart(document.getElementById("displayChart")
     , {
@@ -109,7 +152,13 @@ function drawChart(chartType) {
       }
     });    
   } else if (chartType === "Yearly") {
-    
+    if (window.result) {
+      result.innerHTML="";
+      const canvas = document.createElement("canvas");
+canvas.id = "displayChart";
+document.getElementById("result").appendChild(canvas);
+      
+    }
     
     const selectChart = new Chart(document.getElementById("displayChart")
     , {
@@ -141,7 +190,7 @@ function drawChart(chartType) {
   }
 }
 
-var radios = document.querySelectorAll('input[type=radio][name="abcd"]');
+const radios = document.querySelectorAll('input[type=radio][name="abcd"]');
 radios.forEach(function(radio) {
   radio.addEventListener('change', function() {  
     drawChart(this.value);
