@@ -4,11 +4,12 @@
     display: grid;
     height: 100vh;
     grid-template-columns: 1fr;
-    grid-template-rows: 70px 70px 3fr 1fr .7fr .7fr .7fr 1.5fr 1fr 1fr;
+    grid-template-rows: 70px 70px 1fr 1.8fr 3fr 3fr .7fr .7fr 1.5fr 1fr 1fr;
     grid-template-areas:
     "header"
     "nav"
     "dashboard"
+    "result"
     "daily_Traffic"
     "mobile_Users"
     "social_Stats"
@@ -23,12 +24,13 @@
 }
 
 .header{
+ grid-area: header;
  background-color: aqua;
  display: flex;
- justify-content: space-between;
+justify-content: space-between;
  align-items: center;  
  padding: 2rem;
-
+    
 }
 .student{
     display: flex;
@@ -40,35 +42,59 @@
     margin: 0 1.5rem;
 }
 
-.nav{
+nav{
+    grid-area: nav;
     display: flex;
-    width: 100%;
-// background-color: aquamarine;
-justify-content: space-between;
-padding: 0 1rem;    
+    // background-color: aquamarine;
+    justify-content: space-between;
+    padding: 0 1rem;    
 
+/* || Dashboard section before Daily Traffic */
 }
 .dashboard{
-    // background-color: burlywood;
+    grid-area: dashboard;
+     // background-color: burlywood;
     // min-width: 320px;
+    width:100%;
     padding:15px;
     
 }
+.result{
+    grid-area: result;
+    display: grid;
+    width: 100%;
+    canvas{
+        width: 95vw;
+    }
+}
 
+
+.displayChart{
+    transform: scale(95vw);
+}
+
+/*|| Daily Traffic */
 .daily_Traffic{
+    grid-area: daily_Traffic;
     // background-color: bisque;
-    min-width:320px;
-    height: 350px;
+    // min-width:320px;
+    // max-width: 350px;
+    width:90vw;
+    // height: 350px;
     padding: 15px
 }
 .mobile_Users{
+    grid-area: mobile_Users;
     // background-color: #51d47a;
-    min-width:320px;
-    height: 350px;
+    // min-width:320px;
+    // max-width: 350px;
+    // height: 350px;
+    width: 90vw;
     padding: 15px;
 
 }
 .social_Stats{
+    grid-area: social_Stats;
     // background-color: cadetblue;
     padding: 15px;
     .card{
@@ -83,8 +109,7 @@ padding: 0 1rem;
             padding: 10px;
             color: white;
             background-color: rgb(146,161,207);
-            // filter: invert(1);
-            
+            // filter: invert(1);   
         }
         .stats{
             padding-left: 2rem;
@@ -93,24 +118,29 @@ padding: 0 1rem;
 }
 
 .new_Members{
+    grid-area: new_Members;
     // background-color: darkolivegreen;
-    padding: 15px;
-
+    padding: 15px ;
+    
 }
 .member{
     display: grid ;
     justify-items: center;           
     border-bottom: 1px solid;
     padding: 1.5rem;
+    
     img{
         border-radius: 50%;
     }
  }    
 .recent_Activity{
+    grid-area: recent_Activity;
     // background-color: antiquewhite;
-    padding: 15px;
+    padding: 15px ;
+    
 }
 .message_User{
+    grid-area: message_User;
     // background-color: blueviolet;
     padding: 15px;
     h3{
@@ -124,11 +154,13 @@ padding: 0 1rem;
         }
     }    
 }
+/* || setting */ 
 .settings{
-    background-color: none;
+    grid-area: settings; 
     display: grid;
-    margin: 10px;
-    align-self: center;
+    // margin: 10px;
+    padding: 15px;
+    // align-self: center;
     select, button, span, a{
         font-size: 1.1rem;
         margin:5px;
@@ -136,6 +168,28 @@ padding: 0 1rem;
     }
 
 }
+input, textarea, select, button{
+    border-radius: var(--radius);
+}
+.sc{
+    display:grid;
+    padding: 0;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    
+
+}    
+
+#send, #save{
+    
+    background-color: red;
+    color: white;
+}
+#cancel{
+    background-color: grey;
+    color: black;
+}
+
 
 
 

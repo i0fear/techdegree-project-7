@@ -1,22 +1,24 @@
-
+/*|| Charts switch by radio buttons */
 .traffic{
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    
 }
 .fourcharts{
+    
     display: inline-flex;
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
      
 }
+
 .xLabel{
     padding: 8px 14px;
     font-size: 14px;
     margin: 5px 10px;
-    
     border-radius: 15px;
     background: forestgreen;
     color: white;
@@ -29,6 +31,104 @@
 }    
 .xChart:checked +.xLabel{
     background: #006B56;
-    
     transform: scale(1.15);
 }
+
+/* || checkbox */
+/* Setting */
+.checkA{
+    width: 400px;
+    height: 60px;
+    // background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    
+}
+.checkA input{
+    position: relative;
+    width: 90px;
+    height: 40px;
+    background: #e6e6e6;
+    outline: none;
+    appearance: none;
+    border-radius: 40px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.25);
+    
+}
+
+.checkA input::before{
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width:40px;
+    content:"ON";
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    left: 0;
+    background: linear-gradient(#23c520, #2de32d, #1fd91f, #1dde1a);
+    border-radius: 50%;
+    transform: scale(0.85);
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+input:checked{
+    background: rgba(41, 2, 196, 0.8);
+    
+}
+input:checked::before{
+    content: "OFF";
+    left:50px; 
+    background: rgb(66, 205, 158);
+}
+
+/* || checkbox B*/
+/* Setting */
+.checkB{
+    width: 400px;
+    height: 60px;
+    // background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    
+}
+.checkB input{
+    position: relative;
+    width: 90px;
+    height: 40px;
+    background: #e6e6e6;
+    outline: none;
+    appearance: none;
+    border-radius: 40px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.25);
+    
+}
+
+.checkB input::before{
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width:40px;
+    content:"ON";
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    left: 0;
+    background: linear-gradient(#23c520, #2de32d, #1fd91f, #1dde1a);
+    border-radius: 50%;
+    transform: scale(0.85);
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+input:checked{
+    background: rgba(41, 2, 196, 0.8);
+    
+}
+input:checked::before{
+    content: "OFF";
+    left:50px; 
+    background: rgb(66, 205, 158);
+}
+

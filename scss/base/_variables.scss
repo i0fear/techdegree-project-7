@@ -1,1 +1,26 @@
 
+/* || VARIABLES */
+:root{
+    /* COLOR */
+    --PRIMARY: #ff0000;
+    --BGCOLOR: #475569;
+    --ALT-BGCOLOR: #1a3e5a;
+    --BTNCOLOR: red;
+    --HCOLOR: red;
+    --HTEXT-C: whitesmoke;
+    --DARK-C: black;
+    --BUTTON-C: RED;
+    --BUTTON-TEXT-C: white;
+    
+
+    /* FONT */
+
+    --FS: 1.5rem;
+    --FS-XL: 3rem;
+
+    /* GENERAL */
+    --PADDING: 0.5rem;
+    --radius:8px;
+    --SHADOWS-1: 0 6PX 5PX  -5PX VAR(--DARK-COLOR);
+
+}

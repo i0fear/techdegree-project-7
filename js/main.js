@@ -1,16 +1,18 @@
 // Alert Notification//
-const box=document.getElementById('box');
-const down = false;
+let box=document.getElementById('box');
+let down = false;
 
 function toggleNotifi(){
     if(down){
         box.style.height='0px';
-        box.style.opacity=0;
+        box.style.display='none';
         down = false;
     }else{
         box.style.height ='350px';
-        box.style.opacity = 1;
+        box.style.display = 'block';
+        box.style.zIndex = 2;
         down = true;
+       
     }
 }
 

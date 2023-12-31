@@ -1,14 +1,36 @@
+/* || VARIABLES */
+:root {
+  /* COLOR */
+  --PRIMARY: #ff0000;
+  --BGCOLOR: #475569;
+  --ALT-BGCOLOR: #1a3e5a;
+  --BTNCOLOR: red;
+  --HCOLOR: red;
+  --HTEXT-C: whitesmoke;
+  --DARK-C: black;
+  --BUTTON-C: RED;
+  --BUTTON-TEXT-C: white;
+  /* FONT */
+  --FS: 1.5rem;
+  --FS-XL: 3rem;
+  /* GENERAL */
+  --PADDING: 0.5rem;
+  --radius:8px;
+  --SHADOWS-1: 0 6PX 5PX -5PX VAR(--DARK-COLOR);
+}
+
 .appContainer {
   display: grid;
   height: 100vh;
   grid-template-columns: 1fr;
-  grid-template-rows: 70px 70px 3fr 1fr 0.7fr 0.7fr 0.7fr 1.5fr 1fr 1fr;
-  grid-template-areas: "header" "nav" "dashboard" "daily_Traffic" "mobile_Users" "social_Stats" "new_Members" "recent_Activity" "message_User" "settings";
+  grid-template-rows: 70px 70px 1fr 1.8fr 3fr 3fr 0.7fr 0.7fr 1.5fr 1fr 1fr;
+  grid-template-areas: "header" "nav" "dashboard" "result" "daily_Traffic" "mobile_Users" "social_Stats" "new_Members" "recent_Activity" "message_User" "settings";
   gap: 0.2rem;
   font-weight: 800;
 }
 
 .header {
+  grid-area: header;
   background-color: aqua;
   display: flex;
   justify-content: space-between;
@@ -26,30 +48,48 @@
   margin: 0 1.5rem;
 }
 
-.nav {
+nav {
+  grid-area: nav;
   display: flex;
-  width: 100%;
   justify-content: space-between;
   padding: 0 1rem;
+  /* || Dashboard section before Daily Traffic */
 }
 
 .dashboard {
+  grid-area: dashboard;
+  width: 100%;
   padding: 15px;
 }
 
+.result {
+  grid-area: result;
+  display: grid;
+  width: 100%;
+}
+.result canvas {
+  width: 95vw;
+}
+
+.displayChart {
+  transform: scale(95vw);
+}
+
+/*|| Daily Traffic */
 .daily_Traffic {
-  min-width: 320px;
-  height: 350px;
+  grid-area: daily_Traffic;
+  width: 90vw;
   padding: 15px;
 }
 
 .mobile_Users {
-  min-width: 320px;
-  height: 350px;
+  grid-area: mobile_Users;
+  width: 90vw;
   padding: 15px;
 }
 
 .social_Stats {
+  grid-area: social_Stats;
   padding: 15px;
 }
 .social_Stats .card {
@@ -71,6 +111,7 @@
 }
 
 .new_Members {
+  grid-area: new_Members;
   padding: 15px;
 }
 
@@ -85,10 +126,12 @@
 }
 
 .recent_Activity {
+  grid-area: recent_Activity;
   padding: 15px;
 }
 
 .message_User {
+  grid-area: message_User;
   padding: 15px;
 }
 .message_User h3 {
@@ -102,11 +145,11 @@
   padding: 15px;
 }
 
+/* || setting */
 .settings {
-  background-color: none;
+  grid-area: settings;
   display: grid;
-  margin: 10px;
-  align-self: center;
+  padding: 15px;
 }
 .settings select, .settings button, .settings span, .settings a {
   font-size: 1.1rem;
@@ -114,6 +157,28 @@
   padding: 5px;
 }
 
+input, textarea, select, button {
+  border-radius: var(--radius);
+}
+
+.sc {
+  display: grid;
+  padding: 0;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+}
+
+#send, #save {
+  background-color: red;
+  color: white;
+}
+
+#cancel {
+  background-color: grey;
+  color: black;
+}
+
+/*|| Alert */
 .icon-btn {
   position: relative;
   display: flex;
@@ -207,6 +272,7 @@
   z-index: 9999;
 }
 
+/*|| icons */
 .bell-svg {
   width: 20px;
 }
@@ -224,6 +290,7 @@
   width: 60px;
 }
 
+/*|| Charts switch by radio buttons */
 .traffic {
   display: flex;
   align-items: center;
@@ -257,12 +324,238 @@
   transform: scale(1.15);
 }
 
+/* || checkbox */
+/* Setting */
+.checkA {
+  width: 400px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.checkA input {
+  position: relative;
+  width: 90px;
+  height: 40px;
+  background: #e6e6e6;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 40px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+.checkA input::before {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 40px;
+  content: "ON";
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  left: 0;
+  background: linear-gradient(#23c520, #2de32d, #1fd91f, #1dde1a);
+  border-radius: 50%;
+  transform: scale(0.85);
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+input:checked {
+  background: rgba(41, 2, 196, 0.8);
+}
+
+input:checked::before {
+  content: "OFF";
+  left: 50px;
+  background: rgb(66, 205, 158);
+}
+
+/* || checkbox B*/
+/* Setting */
+.checkB {
+  width: 400px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.checkB input {
+  position: relative;
+  width: 90px;
+  height: 40px;
+  background: #e6e6e6;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 40px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+.checkB input::before {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 40px;
+  content: "ON";
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  left: 0;
+  background: linear-gradient(#23c520, #2de32d, #1fd91f, #1dde1a);
+  border-radius: 50%;
+  transform: scale(0.85);
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+input:checked {
+  background: rgba(41, 2, 196, 0.8);
+}
+
+input:checked::before {
+  content: "OFF";
+  left: 50px;
+  background: rgb(66, 205, 158);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  height: 100vh;
+/*|| SMALL */
+@media screen and (max-width: 767px) {
+  body {
+    background-color: green;
+    background-image: radial-gradient(whitesmoke, green);
+  }
+  .appContainer {
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px 70px 3fr 1fr 0.7fr 0.7fr 0.7fr 1.5fr 1fr 1fr;
+    grid-template-areas: "header" "nav" "dashboard" "result" "daily_Traffic" "mobile_Users" "social_Stats" "new_Members" "recent_Activity" "message_User" "settings";
+  }
+  .nav-icon {
+    width: 45px;
+    margin: 1em 1em 0 1em;
+  }
+}
+/*|| MEDIUM */
+@media screen and (min-width: 768px) {
+  body {
+    background-color: firebrick;
+    background-image: radial-gradient(whitesmoke, firebrick);
+  }
+  .appContainer {
+    grid-template-columns: 90px 1fr 1fr;
+    grid-template-rows: 70px 90px 1fr 0.8fr 0.8fr 1.5fr 1fr 1fr;
+    grid-template-areas: "header header header" "nav dashboard dashboard" "nav result result" "nav daily_Traffic mobile_Users" "nav social_Stats social_Stats" "nav new_Members new_Members" "nav recent_Activity recent_Activity" "nav message_User message_User" "nav settings settings";
+  }
+  .appContainer .nav {
+    margin-top: -2.5px;
+    padding-top: 1em;
+    display: grid;
+    grid-row-end: auto;
+    align-items: start;
+    grid-auto-flow: row;
+  }
+  .appContainer .daily_Traffic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+    height: 100%;
+  }
+  .appContainer .mobile_Users {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+  }
+  .appContainer .social_card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .appContainer .new_Members, .appContainer .recent_Activity {
+    border: 1px solid;
+  }
+  .appContainer .members .member {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    justify-content: space-between;
+    position: relative;
+  }
+  .appContainer .members .member div {
+    position: absolute;
+    text-align: left;
+    left: 135px;
+  }
+  .appContainer .activity .member {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    justify-content: space-between;
+    position: relative;
+  }
+  .appContainer .activity .member div {
+    position: absolute;
+    text-align: left;
+    left: 135px;
+  }
+}
+/*|| XL LARGE */
+@media screen and (min-width: 1024px) {
+  body {
+    background-color: rebeccapurple;
+    background-image: radial-gradient(whitesmoke, rebeccapurple);
+  }
+  .appContainer {
+    grid-template-columns: 90px 1fr 1fr;
+    grid-template-rows: 70px 90px 1fr 0.8fr 0.8fr 1.5fr 1fr;
+    grid-template-areas: "header header header" "nav dashboard dashboard" "nav result result" "nav daily_Traffic mobile_Users" "nav social_Stats social_Stats" "nav new_Members recent_Activity" "nav message_User settings";
+  }
+  .appContainer .nav {
+    margin-top: -2.5px;
+    padding-top: 1em;
+    display: grid;
+    grid-row-end: auto;
+    align-items: start;
+    grid-auto-flow: row;
+  }
+  .appContainer .daily_Traffic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+  }
+  .appContainer .mobile_Users {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+  }
+  .appContainer .social_card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .appContainer .new_Members {
+    text-align: left;
+    border-top: 1px solid;
+    border-right: 1px solid;
+  }
+  .appContainer .activity .member::after {
+    content: ">";
+    font-size: 2em;
+    position: absolute;
+    top: 45%;
+    right: 10px;
+  }
 }/*# sourceMappingURL=styles.css.map */
