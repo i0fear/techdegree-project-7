@@ -1,5 +1,5 @@
 // Alert Notification//
-let box=document.getElementById('box');
+let box = document.getElementById('box');
 let down = false;
 
 function toggleNotifi(){
@@ -10,11 +10,22 @@ function toggleNotifi(){
     }else{
         box.style.height ='350px';
         box.style.display = 'block';
+        box.style.opacity = 1;
         box.style.zIndex = 2;
         down = true;
        
     }
 }
+/* Alert Message Line */
+const alertLine = document.getElementById('alertLine');
+alertLine.addEventListener("click", e=>{
+    const alert = e.target;
+    if(alert.classList.contains("Alert_close")){
+      alertLine.style.display ="none";
+    }
+});
+
+
 
 const selectChart = new Chart(document.getElementById("displayChart")
     ,{
@@ -30,6 +41,7 @@ const selectChart = new Chart(document.getElementById("displayChart")
         }]
       },
       options: {
+        maintainAspectRatio: false,
         scales: {
           y: {
             beginAtZero: true
@@ -51,13 +63,15 @@ const selectChart = new Chart(document.getElementById("displayChart")
 function drawChart(chartType) {
   if (window.result) {
     result.innerHTML="";
-    const canvas = document.createElement("canvas");
+    let canvas = document.createElement("canvas");
+   
 canvas.id = "displayChart";
 document.getElementById("result").appendChild(canvas);
   }
   
   if (chartType === "Hourly") {
-    const selectChart = new Chart(document.getElementById("displayChart")
+    
+    let selectChart = new Chart(document.getElementById("displayChart")
     ,{
       type: 'line',
       data: {
@@ -85,14 +99,15 @@ document.getElementById("result").appendChild(canvas);
     });
   } 
   else if (chartType === "Weekly") {
+    
     if (window.result) {
       result.innerHTML="";
       const canvas = document.createElement("canvas");
-canvas.id = "displayChart";
-document.getElementById("result").appendChild(canvas);
+      canvas.id = "displayChart";
+      document.getElementById("result").appendChild(canvas);
     }
     
-    const selectChart = new Chart(document.getElementById("displayChart")
+    let selectChart = new Chart(document.getElementById("displayChart")
     , {
       type: 'line',
       data: {
@@ -119,14 +134,15 @@ document.getElementById("result").appendChild(canvas);
       }
     });  
   } else if (chartType === "Monthly") {
+    
     if (window.result) {
       result.innerHTML="";
-      const canvas = document.createElement("canvas");
-canvas.id = "displayChart";
-document.getElementById("result").appendChild(canvas);
+      let canvas = document.createElement("canvas");
+      canvas.id = "displayChart";
+      document.getElementById("result").appendChild(canvas);
     }
     
-    const selectChart = new Chart(document.getElementById("displayChart")
+    let selectChart = new Chart(document.getElementById("displayChart")
     , {
       type: 'line',
       data: {
@@ -154,15 +170,16 @@ document.getElementById("result").appendChild(canvas);
       }
     });    
   } else if (chartType === "Yearly") {
+    
     if (window.result) {
       result.innerHTML="";
-      const canvas = document.createElement("canvas");
-canvas.id = "displayChart";
-document.getElementById("result").appendChild(canvas);
-      
+      let canvas = document.createElement("canvas");
+      canvas.id = "displayChart";
+      document.getElementById("result").appendChild(canvas);
+            
     }
     
-    const selectChart = new Chart(document.getElementById("displayChart")
+    let selectChart = new Chart(document.getElementById("displayChart")
     , {
       type: 'line',
       data: {
@@ -192,7 +209,7 @@ document.getElementById("result").appendChild(canvas);
   }
 }
 
-const radios = document.querySelectorAll('input[type=radio][name="abcd"]');
+let radios = document.querySelectorAll('input[type=radio][name="abcd"]');
 radios.forEach(function(radio) {
   radio.addEventListener('change', function() {  
     drawChart(this.value);
@@ -256,4 +273,60 @@ new Chart(mobileUsers, {
         }    
     }
   }
+});
+
+/* || SETTINGS */
+const notice=document.getElementById('notice');
+const profile=document.getElementById('profile');
+const timezone=document.getElementById('timezone');
+
+let localSetting_notice=localStorage.getItem('notice');
+let localSetting_profile=localStorage.getItem('profile');
+let localSetting_timezone=localStorage.getItem('timezone');
+
+if(localSetting_notice ==='off'){
+  notice.checked=false;
+}else{
+  notice.checked=true;
+}
+
+if(localSetting_profile ==='off'){
+  profile.checked=false;
+}else{
+  profile.checked=true;
+}
+
+if(localSetting_timezone){
+ const index =Array.from(timezone.options).findIndex(
+  option => option.value ===localSetting_timezone
+ );
+ timezone.selectdIndex =index;
+ }
+
+ const saveBtn = document.getElementById('save');
+ const cancelBtn = document.getElementById('cancel');
+
+ saveBtn.addEventListener('click', () => {
+  const timezoneOption = timezone[timezone.selectedIndex].textContent;
+
+
+
+  localStorage.setItem('notice', notice.checked ? 'on' : 'off');
+  localStorage.setItem('profile', profile.checked ? 'on' : 'off');
+  if (timezoneOption !== 'Select a Timezone') {
+    localStorage.setItem('timezone', timezoneOption);
+  }
+  //  Alert the user to notify that settings have been saved
+   alert('Settings Saved');
+});
+
+
+
+
+cancelBtn.addEventListener('click', () => {
+  localStorage.removeItem('notice');
+  localStorage.removeItem('profile');
+  localStorage.removeItem('timezone');
+
+  alert('Settings Reset, Please refresh page');
 });

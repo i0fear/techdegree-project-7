@@ -1,25 +1,8 @@
 
 
 .appContainer{
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 1fr;
-    grid-template-rows: 70px 70px 1fr 1.8fr 3fr 3fr .7fr .7fr 1.5fr 1fr 1fr;
-    grid-template-areas:
-    "header"
-    "nav"
-    "dashboard"
-    "result"
-    "daily_Traffic"
-    "mobile_Users"
-    "social_Stats"
-    "new_Members"
-    "recent_Activity"
-    "message_User"
-    "settings"
-    ;
-    gap: 0.2rem;
-    font-weight: 800;
+    
+    
     
 }
 
@@ -45,6 +28,7 @@ justify-content: space-between;
 nav{
     grid-area: nav;
     display: flex;
+    flex-grow: 1;
     // background-color: aquamarine;
     justify-content: space-between;
     padding: 0 1rem;    
@@ -56,21 +40,22 @@ nav{
      // background-color: burlywood;
     // min-width: 320px;
     width:100%;
+    margin: 10px;
     padding:15px;
-    
+    .dashTitle{
+        font-size: 2em;
+    }
+
 }
 .result{
     grid-area: result;
     display: grid;
-    width: 100%;
-    canvas{
-        width: 95vw;
-    }
-}
+}    
 
 
 .displayChart{
-    transform: scale(95vw);
+    width: 95vw;
+    max-height: 300px;
 }
 
 /*|| Daily Traffic */
@@ -188,6 +173,13 @@ input, textarea, select, button{
 #cancel{
     background-color: grey;
     color: black;
+}
+.btp{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    outline: 1px dashed red($color: #000000);
+
 }
 
 
