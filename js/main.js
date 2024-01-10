@@ -41,7 +41,7 @@ const selectChart = new Chart(document.getElementById("displayChart")
         }]
       },
       options: {
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
         scales: {
           y: {
             beginAtZero: true
@@ -51,7 +51,8 @@ const selectChart = new Chart(document.getElementById("displayChart")
             legend: {
                 display: false,
             }    
-        }
+        },
+        legend:{display: false},
       }
     });
 
@@ -94,7 +95,8 @@ document.getElementById("result").appendChild(canvas);
             legend: {
                 display: false,
             }    
-        }
+        },
+        legend:{display: false},
       }
     });
   } 
@@ -130,7 +132,8 @@ document.getElementById("result").appendChild(canvas);
             legend: {
                 display: false,
             }    
-        }
+        },
+        legend:{display: false},
       }
     });  
   } else if (chartType === "Monthly") {
@@ -166,7 +169,8 @@ document.getElementById("result").appendChild(canvas);
             legend: {
                 display: false,
             }    
-        }
+        },
+        legend:{display: false},
       }
     });    
   } else if (chartType === "Yearly") {
@@ -203,7 +207,8 @@ document.getElementById("result").appendChild(canvas);
             legend: {
                 display: false,
             }    
-        }
+        },
+        legend:{display: false},
       }
     });      
   }
@@ -229,7 +234,9 @@ radios.forEach(function(radio) {
       datasets: [{
         
         data: [65, 115, 175, 125, 225, 200, 100],
-              
+        backgroundColor:['blue','blue','blue','blue','blue','blue','blue',],   
+        hoverBorderColor: 'white',
+        hoverBorderWidth: 2,   
         borderWidth: 1
       }]
     },
@@ -243,6 +250,9 @@ radios.forEach(function(radio) {
           legend: {
               display: false,
           }    
+      },
+      legend:{
+        display: false,
       }
     }
   });
@@ -257,6 +267,7 @@ new Chart(mobileUsers, {
     datasets: [{
       
       data: [65, 15, 20,],
+      backgroundColor:['red', 'green', 'blue'],
             
       borderWidth: 1
     }]
@@ -271,9 +282,27 @@ new Chart(mobileUsers, {
         legend: {
             display: true,
         }    
+    },
+    legend:{
+      display:false,
     }
   }
 });
+/* || MESSAGE USER */
+const search=document.getElementById('search');
+const message_user=document.getElementById('message_user');
+const send=document.getElementById('send');
+
+send.addEventListener('click', (e)=> {
+    e.preventDefault();
+    if(search.value =='' || message_user ==" "){
+      alert('message field is empty');
+    }else{
+      alert('message sent');
+    }
+});
+
+
 
 /* || SETTINGS */
 const notice=document.getElementById('notice');

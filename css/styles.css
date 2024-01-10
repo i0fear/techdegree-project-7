@@ -20,7 +20,6 @@
 }
 
 .header {
-  grid-area: header;
   background-color: aqua;
   display: flex;
   justify-content: space-between;
@@ -35,20 +34,11 @@
 }
 
 .user {
-  margin: 0 1.5rem;
+  margin: 0 1.1rem;
 }
 
-nav {
-  grid-area: nav;
-  display: flex;
-  flex-grow: 1;
-  justify-content: space-between;
-  padding: 0 1rem;
-  /* || Dashboard section before Daily Traffic */
-}
-
+/* || Dashboard section before Daily Traffic */
 .dashboard {
-  grid-area: dashboard;
   width: 100%;
   margin: 10px;
   padding: 15px;
@@ -58,30 +48,19 @@ nav {
 }
 
 .result {
-  grid-area: result;
-  display: grid;
-}
-
-.displayChart {
-  width: 95vw;
-  max-height: 300px;
+  width: 100%;
 }
 
 /*|| Daily Traffic */
 .daily_Traffic {
-  grid-area: daily_Traffic;
-  width: 90vw;
-  padding: 15px;
+  align-content: center;
 }
 
 .mobile_Users {
-  grid-area: mobile_Users;
-  width: 90vw;
-  padding: 15px;
+  align-content: center;
 }
 
 .social_Stats {
-  grid-area: social_Stats;
   padding: 15px;
 }
 .social_Stats .card {
@@ -103,7 +82,6 @@ nav {
 }
 
 .new_Members {
-  grid-area: new_Members;
   padding: 15px;
 }
 
@@ -118,12 +96,10 @@ nav {
 }
 
 .recent_Activity {
-  grid-area: recent_Activity;
   padding: 15px;
 }
 
 .message_User {
-  grid-area: message_User;
   padding: 15px;
 }
 .message_User h3 {
@@ -139,7 +115,6 @@ nav {
 
 /* || setting */
 .settings {
-  grid-area: settings;
   display: grid;
   padding: 15px;
 }
@@ -313,10 +288,11 @@ input, textarea, select, button {
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  margin-right: 10px;
 }
 
 .xLabel {
-  padding: 8px 14px;
+  padding: 8px 12px;
   font-size: 14px;
   margin: 5px 10px;
   border-radius: 15px;
@@ -332,7 +308,7 @@ input, textarea, select, button {
 
 .xChart:checked + .xLabel {
   background: #006B56;
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 
 /* || checkbox */
@@ -442,17 +418,59 @@ input:checked::before {
 }
 
 /*|| SMALL */
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 767px) {
   body {
     background-color: green;
     background-image: radial-gradient(whitesmoke, green);
   }
   .appContainer {
     grid-template-columns: 1fr;
-    grid-template-rows: 70px 70px 0.5fr 0.5fr 0.7fr 0.7fr 0.7fr 1.5fr 1fr 1fr;
-    grid-template-areas: "header" "nav" "dashboard" "result" "daily_Traffic" "mobile_Users" "social_Stats" "new_Members" "recent_Activity" "message_User" "settings";
+    grid-template-rows: 70px 70px 0.5fr 0.5fr 0.5fr 0.7fr 0.7fr 0.7fr 1.5fr 1fr 1fr 1fr;
+    grid-template-areas: "header" "nav" "dashboard" "traffic" "result" "daily_Traffic" "mobile_Users" "social_Stats" "new_Members" "recent_Activity" "message_User" "settings";
     gap: 0.2rem;
     font-weight: 800;
+  }
+  #header {
+    grid-area: header;
+    width: 100%;
+    height: 70px;
+  }
+  #nav {
+    grid-area: nav;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+  #dashboard {
+    grid-area: dashboard;
+  }
+  #traffic {
+    grid-area: traffic;
+    margin-left: 10px;
+  }
+  #result {
+    grid-area: result;
+  }
+  #daily_Traffic {
+    grid-area: daily_Traffic;
+  }
+  #mobile_Users {
+    grid-area: mobile_Users;
+  }
+  #social_Stats {
+    grid-area: social_Stats;
+  }
+  #new_Members {
+    grid-area: new_Members;
+  }
+  #recent_Activity {
+    grid-area: recent_Activity;
+  }
+  #message_User {
+    grid-area: message_User;
+  }
+  #settings {
+    grid-area: settings;
   }
   .nav-icon {
     width: 45px;
@@ -461,6 +479,12 @@ input:checked::before {
   .displayChart {
     width: 100%;
     max-height: 320px;
+  }
+  .activity .member {
+    align-items: center;
+  }
+  .member {
+    text-align: center;
   }
   .btp {
     margin-bottom: 20px;
@@ -475,59 +499,96 @@ input:checked::before {
   .appContainer {
     display: grid;
     grid-template-columns: 90px 1fr 1fr;
-    grid-template-rows: 70px 90px 0.5fr 0.5fr 0.2fr 1fr 1fr 0.5fr 0.5fr;
-    grid-template-areas: "header header header" "nav dashboard dashboard" "nav result result" "nav daily_Traffic mobile_Users" "nav social_Stats social_Stats" "nav new_Members new_Members" "nav recent_Activity recent_Activity" "nav message_User message_User" "nav settings settings";
+    grid-template-rows: 70px 110px 70px 0.2fr 0.2fr 0.2fr 1fr 1fr 0.5fr 0.5fr;
+    grid-template-areas: "header header header" "nav dashboard dashboard" "nav traffic traffic" "nav result result" "nav daily_Traffic mobile_Users" "nav social_Stats social_Stats" "nav new_Members new_Members" "nav recent_Activity recent_Activity" "nav message_User message_User" "nav settings settings";
   }
-  .appContainer .nav {
-    margin-top: -2.5px;
-    display: grid;
-    grid-row-end: auto;
-    align-items: start;
-    grid-auto-flow: row;
+  header {
+    grid-area: header;
   }
-  .appContainer .nav a {
+  .nav {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    text-align: center;
+    background: rgba(185, 55, 55, 0.578);
+  }
+  #dashboard {
+    grid-area: dashboard;
+  }
+  #traffic {
+    grid-area: traffic;
+  }
+  #result {
+    grid-area: result;
+  }
+  #daily_Traffic {
+    grid-area: daily_Traffic;
+  }
+  #mobile_Users {
+    grid-area: mobile_Users;
+  }
+  #social_Stats {
+    grid-area: social_Stats;
+  }
+  #new_Members {
+    grid-area: new_Members;
+  }
+  #recent_Activity {
+    grid-area: recent_Activity;
+  }
+  #message_User {
+    grid-area: message_User;
+  }
+  #settings {
+    grid-area: settings;
+  }
+  .nav a {
     padding-top: 1em;
+    padding-right: 0.8em;
     padding-bottom: 3em;
   }
-  .appContainer .daily_Traffic {
+  .daily_Traffic {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 40vw;
+    align-items: flex-start;
+    text-align: left;
+    width: 45vw;
   }
-  .appContainer .mobile_Users {
+  .mobile_Users {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 40vw;
+    align-items: flex-start;
+    text-align: left;
+    width: 45vw;
   }
-  .appContainer .social_card {
+  .social_card {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .appContainer .new_Members, .appContainer .recent_Activity {
+  .new_Members, .recent_Activity {
     border: 1px solid;
   }
-  .appContainer .members .member {
+  .members .member {
     display: flex;
     align-items: center;
     padding-left: 0;
     justify-content: space-between;
     position: relative;
   }
-  .appContainer .members .member div {
+  .members .member div {
     position: absolute;
     text-align: left;
     left: 135px;
   }
-  .appContainer .activity .member {
+  .activity .member {
     display: flex;
     align-items: center;
     padding-left: 0;
     justify-content: space-between;
     position: relative;
   }
-  .appContainer .activity .member div {
+  .activity .member div {
     position: absolute;
     text-align: left;
     left: 135px;
@@ -544,27 +605,52 @@ input:checked::before {
   }
   .appContainer {
     grid-template-columns: 90px 1fr 1fr;
-    grid-template-rows: 70px 90px 0.5fr 0.5fr 0.3fr 1fr 0.5fr;
-    grid-template-areas: "header header header" "nav dashboard dashboard" "nav result result" "nav daily_Traffic mobile_Users" "nav social_Stats social_Stats" "nav new_Members recent_Activity" "nav message_User settings";
+    grid-template-rows: 70px 110px 70px 0.3fr 0.3fr 0.3fr 1fr 0.5fr;
+    grid-template-areas: "header header header" "nav dashboard dashboard" "nav traffic traffic" "nav result result" "nav daily_Traffic mobile_Users" "nav social_Stats social_Stats" "nav new_Members recent_Activity" "nav message_User settings";
   }
-  .appContainer .nav {
-    margin-top: -2.5px;
-    display: grid;
-    grid-row-end: auto;
-    align-items: start;
-    grid-auto-flow: row;
+  .appContainer #header {
+    grid-area: header;
+  }
+  .appContainer #nav {
+    grid-area: nav;
+    background: rgba(146, 77, 214, 0.591);
+  }
+  .appContainer #dashboard {
+    grid-area: dashboard;
+  }
+  .appContainer #traffic {
+    grid-area: traffic;
+  }
+  .appContainer #daily_Traffic {
+    grid-area: daily_Traffic;
+  }
+  .appContainer #mobile_Users {
+    grid-area: mobile_Users;
+  }
+  .appContainer #social_Stats {
+    grid-area: social_Stats;
+  }
+  .appContainer #new_Members {
+    grid-area: new_Members;
+  }
+  .appContainer #recent_Activity {
+    grid-area: recent_Activity;
+  }
+  .appContainer #message_User {
+    grid-area: message_User;
+  }
+  .appContainer #settings {
+    grid-area: settings;
   }
   .appContainer .daily_Traffic {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 30vw;
+    align-items: flex-start;
   }
   .appContainer .mobile_Users {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 30vw;
+    align-items: flex-start;
   }
   .appContainer .social_card {
     display: grid;

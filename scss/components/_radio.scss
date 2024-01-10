@@ -12,11 +12,11 @@
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-     
+    margin-right: 10px; 
 }
 
 .xLabel{
-    padding: 8px 14px;
+    padding: 8px 12px;
     font-size: 14px;
     margin: 5px 10px;
     border-radius: 15px;
@@ -31,7 +31,7 @@
 }    
 .xChart:checked +.xLabel{
     background: #006B56;
-    transform: scale(1.15);
+    transform: scale(1.10);
 }
 
 /* || checkbox */

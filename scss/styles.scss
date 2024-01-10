@@ -17,7 +17,7 @@
 
 
 /*|| SMALL */
-@media screen and (min-width: 320px)  {
+@media screen and (max-width: 767px)  {
     body{
         
         background-color: green;
@@ -26,11 +26,12 @@
     .appContainer{
     
     grid-template-columns: 1fr;
-    grid-template-rows: 70px 70px .5fr .5fr .7fr .7fr .7fr 1.5fr 1fr 1fr;
+    grid-template-rows: 70px 70px .5fr .5fr .5fr .7fr .7fr .7fr 1.5fr 1fr 1fr 1fr;
     grid-template-areas:
     "header"
     "nav"
     "dashboard"
+    "traffic"
     "result"
     "daily_Traffic"
     "mobile_Users"
@@ -43,7 +44,53 @@
     gap: 0.2rem;
     font-weight: 800;
     
-    }    
+    }
+    #header{
+        grid-area: header;
+        width: 100%;
+        height: 70px;
+    }
+    #nav{
+        grid-area: nav;
+        display: flex;
+        flex-grow: 1;
+        // background-color: aquamarine;
+        justify-content: space-between;
+    
+    }
+    #dashboard{
+        grid-area: dashboard;
+    }
+    #traffic{
+        grid-area: traffic;
+        margin-left: 10px;
+    }
+    #result{
+        grid-area: result;
+    }
+    #daily_Traffic{
+        grid-area: daily_Traffic;
+    }
+    #mobile_Users{
+        grid-area: mobile_Users;
+    }
+    #social_Stats{
+        grid-area: social_Stats;
+    }
+    #new_Members{
+        grid-area: new_Members;
+    }
+    #recent_Activity{
+        grid-area: recent_Activity;
+    }
+    #message_User{
+        grid-area: message_User;
+    }
+    #settings{
+        grid-area: settings;
+    }
+    
+
     .nav-icon{
         width: 45px;
         margin: 1em 1em 0 1em;
@@ -52,6 +99,14 @@
     .displayChart{
         width: 100%;
         max-height: 320px;
+    }
+
+    .activity .member{  
+        align-items: center;
+    }
+
+    .member{ 
+        text-align: center;
     }
     .btp{
         margin-bottom: 20px;
@@ -71,10 +126,11 @@
     .appContainer{
         display: grid;
         grid-template-columns: 90px 1fr 1fr;
-        grid-template-rows: 70px 90px .5fr .5fr .2fr 1fr 1fr .5fr .5fr;
+        grid-template-rows: 70px 110px 70px .2fr .2fr .2fr 1fr 1fr .5fr .5fr;
         grid-template-areas:
         "header header header"
         "nav dashboard dashboard"
+        "nav traffic traffic"
         "nav result result"
         "nav daily_Traffic mobile_Users"
         "nav social_Stats social_Stats"
@@ -83,15 +139,66 @@
         "nav message_User message_User"
         "nav settings settings"
         ;
+    }  
+    header{
+        grid-area: header;
+    }
+    .nav{
+        grid-area: nav;
+        display: flex;
+        flex-direction: column;
+        justify-content: baseline;
+        text-align: center;
+        background: rgba(185, 55, 55, 0.578);
+
+
+    }
+    #dashboard{
+        grid-area: dashboard;
+    }
+    #traffic{
+        grid-area: traffic;
+    }
+    #result{
+        grid-area: result;
+
+    }
+    #daily_Traffic{
+        grid-area: daily_Traffic;
+    }
+    #mobile_Users{
+        grid-area: mobile_Users;
+    }
+    #social_Stats{
+        grid-area: social_Stats;
+    }
+    #new_Members{
+        grid-area: new_Members;
+    }
+    #recent_Activity{
+        grid-area: recent_Activity;
+    }
+    #message_User{
+        grid-area: message_User;
+    }
+    #settings{
+        grid-area: settings;
+    }
+
         .nav{
-            margin-top:-2.5px;
-            display: grid;  
-            grid-row-end: auto;
-            align-items: start;
-            grid-auto-flow: row;
+            
+            // margin-top:-1.5px;
+            // display: flex;  
+            // grid-row-end: auto;
+            
+            // flex-direction: column;
+            // align-content: flex-start;
+            // grid-auto-flow: row;
+            
             
             a{
                 padding-top: 1em;
+                padding-right: .8em;
                 padding-bottom: 3em;
             }
 
@@ -101,15 +208,17 @@
         .daily_Traffic{
             display: flex;
             flex-direction: column;           
-            align-items: center;
-            width:40vw;
+            align-items: flex-start;
+            text-align: left;
+            width:45vw;
 
         }
         .mobile_Users{
             display: flex;
             flex-direction: column;
-            align-items: center;
-            width:40vw;
+            align-items: flex-start;
+            text-align: left;
+            width:45vw;
             
         }
        .social_card{
@@ -151,7 +260,10 @@
 
         }
        
-    }  
+    
+
+
+
     .btp{
         display: none;
     } 
@@ -166,10 +278,11 @@
     }
     .appContainer{
         grid-template-columns: 90px 1fr 1fr;
-        grid-template-rows: 70px 90px .5fr .5fr .3fr 1fr .5fr;
+        grid-template-rows: 70px 110px 70px .3fr .3fr .3fr 1fr .5fr;
         grid-template-areas:
         "header header header"
         "nav dashboard dashboard"
+        "nav traffic traffic"
         "nav result result"
         "nav daily_Traffic mobile_Users"
         "nav social_Stats social_Stats"
@@ -177,30 +290,64 @@
         "nav message_User settings"
         
         ;
-        .nav{
-            margin-top:-2.5px;
-            display: grid;  
-            grid-row-end: auto;
-            align-items: start;
-            grid-auto-flow: row;
-            
+        #header{
+            grid-area: header;
         }
+        #nav{
+            grid-area: nav;
+            background: rgba(146, 77, 214, 0.591);
+        }
+        #dashboard{
+            grid-area: dashboard;
+        }
+        #traffic{
+            grid-area: traffic;
+        }
+        #daily_Traffic{
+            grid-area: daily_Traffic;
+        }
+        #mobile_Users{
+            grid-area: mobile_Users;
+        }
+        #social_Stats{
+            grid-area: social_Stats;
+        }
+        #new_Members{
+            grid-area: new_Members;
+        }
+        #recent_Activity{
+            grid-area: recent_Activity;
+        }
+        #message_User{
+            grid-area: message_User;
+        }
+        #settings{
+            grid-area: settings;
+        }
+
+        
+       
+       
+
         .daily_Traffic{
+           
             display: flex;
             flex-direction: column;
-            align-items: center;
-            width:30vw;
+            align-items: flex-start;
+            // width:30vw;
            
         }
         .mobile_Users{
+            
             display: flex;
             flex-direction: column;
-            align-items: center;
-            width:30vw;
+            align-items: flex-start;
+            // width:30vw;
         }
        .social_card{
-        display:grid;
-        grid-template-columns: 1fr 1fr 1fr;
+            
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr;
         }
         .new_Members{
             text-align: left;
