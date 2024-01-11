@@ -295,10 +295,10 @@ const send=document.getElementById('send');
 
 send.addEventListener('click', (e)=> {
     e.preventDefault();
-    if(search.value =='' || message_user ==" "){
-      alert('message field is empty');
+    if(search.value =='' || message_user.value ==''){
+      alert('Message field is empty');
     }else{
-      alert('message sent');
+      alert('Message sent');
     }
 });
 

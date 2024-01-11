@@ -74,8 +74,8 @@
   border: 1px solid;
   border-radius: 50px;
   padding: 10px;
-  color: white;
-  background-color: rgb(146, 161, 207);
+  fill: whitesmoke;
+  background-color: rgba(24, 4, 154, 0.9);
 }
 .social_Stats .card .stats {
   padding-left: 2rem;
@@ -117,6 +117,7 @@
 .settings {
   display: grid;
   padding: 15px;
+  overflow: hidden;
 }
 .settings select, .settings button, .settings span, .settings a {
   font-size: 1.1rem;
@@ -314,7 +315,8 @@ input, textarea, select, button {
 /* || checkbox */
 /* Setting */
 .checkA {
-  width: 400px;
+  width: 350px;
+  overflow: hidden;
   height: 60px;
   display: flex;
   align-items: center;
@@ -364,7 +366,8 @@ input:checked::before {
 /* || checkbox B*/
 /* Setting */
 .checkB {
-  width: 400px;
+  width: 350px;
+  overflow: hidden;
   height: 60px;
   display: flex;
   align-items: center;
@@ -422,6 +425,8 @@ input:checked::before {
   body {
     background-color: green;
     background-image: radial-gradient(whitesmoke, green);
+    max-width: 100%;
+    overflow-x: hidden;
   }
   .appContainer {
     grid-template-columns: 1fr;
@@ -495,6 +500,8 @@ input:checked::before {
   body {
     background-color: firebrick;
     background-image: radial-gradient(whitesmoke, firebrick);
+    max-width: 100%;
+    overflow-x: hidden;
   }
   .appContainer {
     display: grid;
@@ -602,6 +609,8 @@ input:checked::before {
   body {
     background-color: rebeccapurple;
     background-image: radial-gradient(whitesmoke, rebeccapurple);
+    max-width: 100%;
+    overflow-x: hidden;
   }
   .appContainer {
     grid-template-columns: 90px 1fr 1fr;

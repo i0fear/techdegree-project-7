@@ -37,7 +37,8 @@
 /* || checkbox */
 /* Setting */
 .checkA{
-    width: 400px;
+    width: 350px;
+    overflow: hidden;
     height: 60px;
     // background-color: #fff;
     display: flex;
@@ -86,7 +87,8 @@ input:checked::before{
 /* || checkbox B*/
 /* Setting */
 .checkB{
-    width: 400px;
+    width: 350px;
+    overflow: hidden;
     height: 60px;
     // background-color: #fff;
     display: flex;
