@@ -295,9 +295,16 @@ const send=document.getElementById('send');
 
 send.addEventListener('click', (e)=> {
     e.preventDefault();
-    if(search.value =='' || message_user.value ==''){
-      alert('Message field is empty');
-    }else{
+    if(search.value =='' && message_user.value !==''){
+      alert('Search field is empty');
+    }
+    else if(message_user.value =='' && search.value !==''){
+      alert('Text field is empty');
+    }
+    else if(search.value =='' && message_user.value ==''){
+      alert('Search and Text field are both empties');
+    }
+    else{
       alert('Message sent');
     }
 });

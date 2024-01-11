@@ -66,6 +66,7 @@
     #traffic{
         grid-area: traffic;
         margin-left: 10px;
+     
     }
     #result{
         grid-area: result;
@@ -98,6 +99,18 @@
         margin: 1em 1em 0 1em;
         
     }
+    .traffic{
+        max-width: 95%;
+        font-size: 1rem;
+       
+        .fourcharts .xLabel{
+            width: 95%;
+            margin: 3px;
+            padding: 7px;
+            font-size: .8rem;
+        }
+    }
+
     .displayChart{
         width: 100%;
         max-height: 320px;
@@ -161,6 +174,7 @@
     }
     #traffic{
         grid-area: traffic;
+       
     }
     #result{
         grid-area: result;
@@ -307,6 +321,7 @@
         }
         #traffic{
             grid-area: traffic;
+            
         }
         #daily_Traffic{
             grid-area: daily_Traffic;

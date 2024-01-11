@@ -481,6 +481,16 @@ input:checked::before {
     width: 45px;
     margin: 1em 1em 0 1em;
   }
+  .traffic {
+    max-width: 95%;
+    font-size: 1rem;
+  }
+  .traffic .fourcharts .xLabel {
+    width: 95%;
+    margin: 3px;
+    padding: 7px;
+    font-size: 0.8rem;
+  }
   .displayChart {
     width: 100%;
     max-height: 320px;
