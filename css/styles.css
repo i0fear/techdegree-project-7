@@ -121,8 +121,8 @@
 }
 .settings select, .settings button, .settings span, .settings a {
   font-size: 1.1rem;
-  margin: 5px;
-  padding: 5px;
+  margin: 3px 3px 3px 0;
+  padding: 5px 5px 5px 0;
 }
 
 input, textarea, select, button {
@@ -321,7 +321,7 @@ input, textarea, select, button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding-right: 10px;
 }
 
 .checkA input {
@@ -372,7 +372,7 @@ input:checked::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding-right: 10px;
 }
 
 .checkB input {
