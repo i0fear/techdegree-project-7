@@ -36,10 +36,12 @@
 
 /* || checkbox */
 /* Setting */
+
+
 .checkA{
-    width: 350px;
+    width: 300px;
     overflow: hidden;
-    height: 60px;
+    height: 50px;
     // background-color: #fff;
     display: flex;
     align-items: center;
@@ -87,9 +89,9 @@ input:checked::before{
 /* || checkbox B*/
 /* Setting */
 .checkB{
-    width: 350px;
+    width: 300px;
     overflow: hidden;
-    height: 60px;
+    height: 50px;
     // background-color: #fff;
     display: flex;
     align-items: center;
