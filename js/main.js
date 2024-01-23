@@ -41,6 +41,7 @@ const selectChart = new Chart(document.getElementById("displayChart")
         }]
       },
       options: {
+        aspectRatio: 16/5, 
         maintainAspectRatio: true,
         scales: {
           y: {
@@ -86,6 +87,7 @@ document.getElementById("result").appendChild(canvas);
         }]
       },
       options: {
+        aspectRatio: 16/5, 
         scales: {
           y: {
             beginAtZero: true
@@ -123,6 +125,7 @@ document.getElementById("result").appendChild(canvas);
         }]
       },
       options: {
+        aspectRatio: 16/5, 
         scales: {
           y: {
             beginAtZero: true
@@ -160,6 +163,7 @@ document.getElementById("result").appendChild(canvas);
         }]
       },
       options: {
+        aspectRatio: 16/5,
         scales: {
           y: {
             beginAtZero: true
@@ -198,6 +202,7 @@ document.getElementById("result").appendChild(canvas);
         }]
       },
       options: {
+        aspectRatio: 16/5,
         scales: {
           y: {
             beginAtZero: true
